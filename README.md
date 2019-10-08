@@ -22,6 +22,13 @@ To deploy on Kubernetes, we need to create a local cluster for that supports all
 brew cask install minikube
 minikube start
 minikube dashboard
+
+DOCKER_REGISTRY_SERVER=docker.io
+DOCKER_USER=dhinkris
+DOCKER_PASSWORD=
+DOCKER_EMAIL=
+kubectl create secret docker-registry regcred   --docker-server=$DOCKER_REGISTRY_SERVER   --docker-username=$DOCKER_USER   --docker-password=$DOCKER_PASSWORD   --docker-email=$DOCKER_EMAIL
+kubectl get secret regcred --output=yaml
 ```
 ### Prior to installing minikube, 1) Make sure you have kubectl installed. 2) Install VirtualBox
 
