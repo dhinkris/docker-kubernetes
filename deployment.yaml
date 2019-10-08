@@ -1,8 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react
-  namespace: react
+  name: react-deployment
+  labels:
+    app: react
 spec:
   replicas: 3
   selector:
@@ -15,7 +16,6 @@ spec:
     spec:
       containers:
       - name: react
-        image: dhinkris/react-app
-        imagePullPolicy: Always
+        image: dhinkris/react-app:v1
         ports:
         - containerPort: 80
